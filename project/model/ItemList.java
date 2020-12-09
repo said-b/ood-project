@@ -19,6 +19,13 @@ public class ItemList implements Serializable {
     }
 
     public Item get(int id){
-        return map.get(id);
+        Item item = map.get(id);
+        if(item != null ){
+            return item;
+        }
+        else{
+            throw new RuntimeException("Item does not exist");
+        }
+
     };
 }

@@ -2,13 +2,8 @@ package project.model;
 
 public class InventoryList extends UserItemList{
 
-//    private HashMap<Integer, project.model.Item> map;
-//    private project.model.MasterList masterList;
-
-
     public InventoryList(MasterList masterList){
         super(masterList);
-//        this.masterList =  masterList;
     }
     @Override
     public void add(Item i) {
@@ -21,10 +16,6 @@ public class InventoryList extends UserItemList{
             i.changeQuantity(amount);
         }
     }
-//    @Override
-//    public project.model.Item get(int id) {
-//        return map.get(id);
-//    }
 
     public void createItem(double price, String name, int quantity, String descText, String img){
 
