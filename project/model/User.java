@@ -26,7 +26,7 @@ public class User implements Serializable {
     }
 
 
-    User(String username, String password, MasterList masterList){
+    public User(String username, String password, MasterList masterList){
         this.username = username;
         this.password = password;
         cart = new ShoppingCart(masterList);

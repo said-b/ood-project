@@ -26,7 +26,7 @@ import java.awt.TextField;
 import java.awt.event.FocusAdapter;
 import javax.swing.JLabel;
 import java.awt.Label;
-import com.jgoodies.forms.factories.DefaultComponentFactory;
+//import com.jgoodies.forms.factories.DefaultComponentFactory;
 import javax.swing.border.MatteBorder;
 import java.awt.Color;
 import java.awt.Font;
@@ -40,8 +40,8 @@ public class LoginScreen extends JFrame {
 	/**
 	 * @wbp.nonvisual location=71,19
 	 */
-	private final JLabel label = DefaultComponentFactory.getInstance().createTitle("New JGoodies title");
-
+	//private final JLabel label = DefaultComponentFactory.getInstance().createTitle("New JGoodies title");
+	private final JLabel label = new JLabel("New JGoodies title");
 	/**
 	 * Launch the application.
 	 */
@@ -70,12 +70,12 @@ public class LoginScreen extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		
+
 		pwTextfield = new JPasswordField();
 		pwTextfield.setName("");
 		pwTextfield.setBounds(161, 191, 146, 20);
 		contentPane.add(pwTextfield);
-		
+
 		JButton loginBtn = new JButton("Login");
 		loginBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -83,23 +83,23 @@ public class LoginScreen extends JFrame {
 		});
 		loginBtn.setBounds(190, 229, 89, 23);
 		contentPane.add(loginBtn);
-		
+
 		usernameTextField = new JTextField();
 		usernameTextField.setBounds(161, 163, 146, 20);
 		contentPane.add(usernameTextField);
 		usernameTextField.setColumns(10);
-		
+
 		JLabel usernameLbl = new JLabel("Username");
 		usernameLbl.setLabelFor(usernameLbl);
 		usernameLbl.setBounds(95, 166, 60, 14);
 		contentPane.add(usernameLbl);
-		
+
 		JLabel pwLbl = new JLabel("Password");
 		pwLbl.setAutoscrolls(true);
 		pwLbl.setLabelFor(pwLbl);
 		pwLbl.setBounds(95, 194, 60, 14);
 		contentPane.add(pwLbl);
-		
+
 		JLabel welcLbl = new JLabel("Welcome!");
 		welcLbl.setHorizontalAlignment(SwingConstants.CENTER);
 		welcLbl.setFont(new Font("Footlight MT Light", Font.PLAIN, 42));

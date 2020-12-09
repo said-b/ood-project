@@ -54,7 +54,7 @@ public class ProductPage extends JFrame {
 		contentPane.add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("");
-		Image img = new ImageIcon(this.getClass().getResource("/vi_2.5l_rnd_stewpot_1093028.jpg")).getImage();
+		Image img = new ImageIcon(this.getClass().getResource("/src/vi_2.5l_rnd_stewpot_1093028.jpg")).getImage();
 		lblNewLabel_1.setIcon(new ImageIcon(img));;
 		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_1.setBounds(51, 226, 125, 125);
