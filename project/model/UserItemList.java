@@ -7,7 +7,7 @@ public class UserItemList extends ItemList {
         super();
         this.masterList = iL;
     }
-    void add(int id){
+    public void add(int id){
         map.put(id, masterList.get(id));
     }
     public void remove(int id){

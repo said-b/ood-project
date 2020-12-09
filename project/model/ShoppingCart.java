@@ -9,11 +9,11 @@ public class ShoppingCart extends UserItemList {
         super(iL);
     }
 
-    void add(Item item, int amount){
+    public void add(Item item, int amount){
         map.put(item.getId(), item);
         quantities.put(item.getId(), amount);
     }
-    void add(int id, int amount){
+    public void add(int id, int amount){
         map.put(id, masterList.get(id));
         quantities.put(id, amount);
     }

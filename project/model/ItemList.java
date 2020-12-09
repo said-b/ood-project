@@ -14,7 +14,7 @@ public class ItemList implements Serializable {
     }
 
 
-    void add(Item item){
+    public void add(Item item){
         map.put(item.getId(), item);
     }
 
