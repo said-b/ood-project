@@ -57,7 +57,7 @@ public class Driver {
         User currentUser = null;
         //if data file exists, deserialize data into ^ variables
         //if not initialize new variables
-        String dataFile ="C:\\Users\\Sblanc\\Documents\\fall_2020\\OOD\\project\\src\\src\\data.ser";
+        String dataFile ="src/src/data.ser";
 
         try {
             FileInputStream fileIn = new FileInputStream(dataFile);
