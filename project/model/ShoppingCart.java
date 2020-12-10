@@ -28,6 +28,13 @@ public class ShoppingCart extends UserItemList {
             }
         }
     }
+
+    public int getQuantity(int id){
+        return quantities.get(id);
+    }
+    public void setQuantities(int id, int n){
+        quantities.put(id, n);
+    }
 //    @Override
 //    public project.model.Item get(int id) {
 //        return null;
