@@ -6,6 +6,8 @@ import project.model.MasterList;
 import project.model.User;
 
 import javax.swing.*;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 import java.io.*;
 import java.util.HashMap;
 
@@ -34,10 +36,10 @@ public class Driver {
         User currentUser = null;
         //if data file exists, deserialize data into ^ variables
         //if not initialize new variables
-        String dataFile ="";
+        String dataFile ="C:\\Users\\Sblanc\\Documents\\fall_2020\\OOD\\project\\src\\src\\data.ser";
 
         try {
-            FileInputStream fileIn = new FileInputStream("/tmp/employee.ser");
+            FileInputStream fileIn = new FileInputStream(dataFile);
             ObjectInputStream in = new ObjectInputStream(fileIn);
             masterList = (MasterList) in.readObject();
             userHashMap = (HashMap<String,User>) in.readObject();
@@ -58,6 +60,55 @@ public class Driver {
         functionHandler.loginScreen(frame);
         frame.setVisible(true);
         frame.setResizable(false);
+        MasterList finalMasterList = masterList;
+        HashMap<String, User> finalUserHashMap = userHashMap;
+        frame.addWindowListener(new WindowListener() {
+            @Override
+            public void windowOpened(WindowEvent e) {
+
+            }
+
+            @Override
+            public void windowClosing(WindowEvent e) {
+                try {
+                    FileOutputStream fileOut = new FileOutputStream(dataFile);
+                    ObjectOutputStream out = new ObjectOutputStream(fileOut);
+                    out.writeObject(finalMasterList);
+                    out.writeObject(finalUserHashMap);
+                    out.close();
+                    fileOut.close();
+                    System.out.printf("Serialized data is saved in " + dataFile);
+                } catch (IOException i) {
+                    i.printStackTrace();
+                }
+            }
+
+            @Override
+            public void windowClosed(WindowEvent e) {
+
+            }
+
+            @Override
+            public void windowIconified(WindowEvent e) {
+
+            }
+
+            @Override
+            public void windowDeiconified(WindowEvent e) {
+
+            }
+
+            @Override
+            public void windowActivated(WindowEvent e) {
+
+            }
+
+            @Override
+            public void windowDeactivated(WindowEvent e) {
+
+            }
+        });
+
 
 
 

@@ -58,13 +58,21 @@ public class GuiFunctions {
             public void actionPerformed(ActionEvent e) {
                 String enteredUsername = usernameTextField.getText();
                 String enteredPassword = new String(pwTextfield.getPassword());
-                if(users.containsKey(enteredUsername)){
-                    if(users.get(enteredUsername).getPassword().equals(enteredPassword)){
-                        setuser(users.get(enteredUsername));
-                        //switch context
+                if(users != null){
+                    if(users.containsKey(enteredUsername)){
+                        if(users.get(enteredUsername).getPassword().equals(enteredPassword)){
+                            setuser(users.get(enteredUsername));
+                            //switch context
 
+                        }
+                        else{
+                            errorTxt.setText("Incorrect Password");
+                        }
                     }
-                 }
+                    else{
+                        errorTxt.setText("User doesn't exist.");
+                    }
+                }
                 else{
                     errorTxt.setText("User doesn't exist.");
                 }
@@ -77,7 +85,14 @@ public class GuiFunctions {
             public void actionPerformed(ActionEvent e) {
                 String enteredUsername = usernameTextField.getText();
                 String enteredPassword = new String(pwTextfield.getPassword());
-                if(!users.containsKey(enteredUsername)){
+                if(users == null){
+                    //create new user
+                    User user = new User(enteredUsername, enteredPassword, masterList);
+                    userHashMap.put(enteredUsername, user);
+                    GuiFunctions.this.setuser(user);
+                    errorTxt.setText("Account created.");
+                }
+                else if(!users.containsKey(enteredUsername)){
                     //create new user
                     User user = new User(enteredUsername, enteredPassword, masterList);
                     userHashMap.put(enteredUsername, user);
