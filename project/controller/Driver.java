@@ -1,17 +1,29 @@
 package project.controller;
 
-//import jdk.internal.util.xml.impl.ReaderUTF8;
+
+import project.gui.GuiFunctions;
 import project.model.Item;
 import project.model.MasterList;
 import project.model.User;
-//import sun.management.snmp.jvminstr.JvmRTClassPathEntryImpl;
 
 import javax.swing.*;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
+import java.io.*;
+
+//import jdk.internal.util.xml.impl.ReaderUTF8;
+// import project.model.Item;
+// import project.model.MasterList;
+// import project.model.User;
+//import sun.management.snmp.jvminstr.JvmRTClassPathEntryImpl;
+
+// import javax.swing.*;
 
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
-import java.io.File;
-import java.io.IOException;
+//import java.io.File;
+//import java.io.IOException;
+
 import java.util.HashMap;
 
 public class Driver {
@@ -40,12 +52,89 @@ public class Driver {
     }
 
     public static void main(String args[]){
-        HashMap<String, User> userHashMap;
-        MasterList masterList;
+        HashMap<String, User> userHashMap = null;
+        MasterList masterList = null;
+        User currentUser = null;
         //if data file exists, deserialize data into ^ variables
         //if not initialize new variables
+        String dataFile ="src/src/data.ser";
 
-        cMTester();
+        try {
+            FileInputStream fileIn = new FileInputStream(dataFile);
+            ObjectInputStream in = new ObjectInputStream(fileIn);
+            masterList = (MasterList) in.readObject();
+            userHashMap = (HashMap<String,User>) in.readObject();
+            in.close();
+            fileIn.close();
+        } catch (FileNotFoundException f) {
+            userHashMap = new HashMap<>();
+            masterList = MasterList.getInstance();
+        } catch (IOException i){
+            i.printStackTrace();
+        } catch (ClassNotFoundException c) {
+            System.out.println("Employee class not found");
+            c.printStackTrace();
+        }
+
+        JFrame frame = new JFrame();
+        GuiFunctions functionHandler = new GuiFunctions(currentUser, masterList, userHashMap);
+        functionHandler.loginScreen(frame);
+        frame.setVisible(true);
+        frame.setResizable(false);
+        MasterList finalMasterList = masterList;
+        HashMap<String, User> finalUserHashMap = userHashMap;
+        frame.addWindowListener(new WindowListener() {
+            @Override
+            public void windowOpened(WindowEvent e) {
+
+            }
+
+            @Override
+            public void windowClosing(WindowEvent e) {
+                try {
+                    FileOutputStream fileOut = new FileOutputStream(dataFile);
+                    ObjectOutputStream out = new ObjectOutputStream(fileOut);
+                    out.writeObject(finalMasterList);
+                    out.writeObject(finalUserHashMap);
+                    out.close();
+                    fileOut.close();
+                    System.out.println("Serialized data is saved in " + dataFile);
+                } catch (IOException i) {
+                    i.printStackTrace();
+                }
+            }
+
+            @Override
+            public void windowClosed(WindowEvent e) {
+
+            }
+
+            @Override
+            public void windowIconified(WindowEvent e) {
+
+            }
+
+            @Override
+            public void windowDeiconified(WindowEvent e) {
+
+            }
+
+            @Override
+            public void windowActivated(WindowEvent e) {
+
+            }
+
+            @Override
+            public void windowDeactivated(WindowEvent e) {
+
+            }
+        });
+
+
+
+
+
+        //cMTester();
     }
 
 

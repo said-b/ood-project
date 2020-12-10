@@ -9,6 +9,12 @@ public class User implements Serializable {
     protected String username;
     protected String password;
 
+    public String getUsername(){
+        return this.username;
+    }
+    public String getPassword(){
+        return this.password;
+    }
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
