@@ -1,6 +1,9 @@
 package project.gui;
 
 import com.sun.javaws.util.JfxHelper;
+
+import project.controller.ComponentMaker;
+import project.model.Item;
 import project.model.MasterList;
 import project.model.User;
 
@@ -9,6 +12,7 @@ import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.util.HashMap;
 
 public class GuiFunctions {
@@ -127,7 +131,41 @@ public class GuiFunctions {
     }
 
     public void marketScreen(JFrame frame){
-
+    	
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(1000,1000);
+        JPanel newLay = new JPanel();
+        JToolBar tb = new JToolBar();
+        
+        JButton wishList = new JButton("WishList");
+        JButton shoppingCart = new JButton("Shopping Cart");
+        JButton inventoryList = new JButton("Inventory List");
+        
+        JPanel toolbars = new JPanel();
+        
+        toolbars.add(wishList);
+        toolbars.add(shoppingCart);
+        toolbars.add(inventoryList);
+        
+        tb.add(toolbars);
+        
+        
+        Item water = new Item(1, 10.50, "Water", 1, "Water", "src/E448457H-1_thumb.jpg");
+        Item bowl = new Item(2, 20.00, "Bowl", 1, "Bowl", "src/vi_2.5l_rnd_stewpot_1093028.jpg");
+        JPanel panel, panel2;
+        
+        try {
+        	panel = new ComponentMaker().itemPanel(water, new User("a", "b", MasterList.getInstance()));
+        	panel2 = new ComponentMaker().itemPanel(bowl, new User("c", "d", MasterList.getInstance()));
+        }catch(IOException e) {
+        	throw new RuntimeException("Img file not found");
+        }
+    
+        newLay.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
+        
+        frame.add(tb, BorderLayout.NORTH);
+        frame.add(panel, BorderLayout.CENTER);
+	    frame.add(panel2, BorderLayout.SOUTH);
     }
 
     public void wishlistScreen(JFrame frame){
