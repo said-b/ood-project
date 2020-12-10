@@ -57,7 +57,7 @@ public class ShoppingCart extends JFrame {
 		contentPane.add(lblNewLabel);
 		
 		JLabel bowlPic = new JLabel("");
-		Image img = new ImageIcon(this.getClass().getResource("/vi_2.5l_rnd_stewpot_1093028.jpg")).getImage();
+		Image img = new ImageIcon(this.getClass().getResource("/src/vi_2.5l_rnd_stewpot_1093028.jpg")).getImage();
 		bowlPic.setIcon(new ImageIcon(img));;
 		bowlPic.setHorizontalAlignment(SwingConstants.CENTER);
 		bowlPic.setBounds(21, 237, 133, 133);

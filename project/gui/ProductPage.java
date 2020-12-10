@@ -41,6 +41,7 @@ public class ProductPage extends JFrame {
 	 * Create the frame.
 	 */
 	public ProductPage() {
+		setTitle("Shopping Cart");
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 500, 500);
@@ -106,5 +107,4 @@ public class ProductPage extends JFrame {
 		bowlCartBtn.setBounds(385, 328, 89, 23);
 		contentPane.add(bowlCartBtn);
 	}
-
 }
