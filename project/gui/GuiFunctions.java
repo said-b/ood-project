@@ -67,8 +67,12 @@ public class GuiFunctions {
                     if(users.containsKey(enteredUsername)){
                         if(users.get(enteredUsername).getPassword().equals(enteredPassword)){
                             setuser(users.get(enteredUsername));
-                            //switch context
-
+                            //contentPane.removeAll();
+                            jFrame.getContentPane().removeAll();
+                            jFrame.getContentPane().setVisible(false);
+                            //jFrame.revalidate();
+                            //jFrame.repaint();
+                            marketScreen(jFrame);
                         }
                         else{
                             errorTxt.setText("Incorrect Password");
@@ -128,15 +132,26 @@ public class GuiFunctions {
         welcLbl.setFont(new Font("Footlight MT Light", Font.PLAIN, 42));
         welcLbl.setBounds(91, 29, 283, 95);
         contentPane.add(welcLbl);
+
+
     }
 
     public void marketScreen(JFrame frame){
     	
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        //frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.revalidate();
+        frame.repaint();
         frame.setSize(1000,1000);
+        frame.setResizable(true);
+        //frame.add(new JTextField("aslkdfj"));
+
         JPanel newLay = new JPanel();
+        newLay.setBorder(new EmptyBorder(5, 5, 5, 5));
+        newLay.setVisible(true);
+        frame.setContentPane(newLay);
+
         JToolBar tb = new JToolBar();
-        
+
         JButton wishList = new JButton("WishList");
         JButton shoppingCart = new JButton("Shopping Cart");
         JButton inventoryList = new JButton("Inventory List");
@@ -150,22 +165,29 @@ public class GuiFunctions {
         tb.add(toolbars);
         
         
-        Item water = new Item(1, 10.50, "Water", 1, "Water", "src/E448457H-1_thumb.jpg");
-        Item bowl = new Item(2, 20.00, "Bowl", 1, "Bowl", "src/vi_2.5l_rnd_stewpot_1093028.jpg");
+        Item water = new Item(1, 10.50, "Water", 1, "Water", "src/src/E448457H-1_thumb.jpg");
+        Item bowl = new Item(2, 20.00, "Bowl", 1, "Bowl", "src/src/vi_2.5l_rnd_stewpot_1093028.jpg");
         JPanel panel, panel2;
-        
+
         try {
-        	panel = new ComponentMaker().itemPanel(water, new User("a", "b", MasterList.getInstance()));
-        	panel2 = new ComponentMaker().itemPanel(bowl, new User("c", "d", MasterList.getInstance()));
+        	panel = new ComponentMaker().itemPanel(water, new User("a", "b", masterList));
+        	panel2 = new ComponentMaker().itemPanel(bowl, new User("c", "d", masterList));
+        	//frame.setContentPane(panel);
         }catch(IOException e) {
         	throw new RuntimeException("Img file not found");
         }
-    
+
+
         newLay.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
-        
-        frame.add(tb, BorderLayout.NORTH);
-        frame.add(panel, BorderLayout.CENTER);
-	    frame.add(panel2, BorderLayout.SOUTH);
+
+        newLay.add(tb, BorderLayout.NORTH);
+        newLay.add(panel, BorderLayout.CENTER);
+        newLay.add(panel2, BorderLayout.SOUTH);
+        //frame.add(newLay);
+	    frame.getContentPane().revalidate();
+	    frame.getContentPane().repaint();
+        frame.revalidate();
+        frame.repaint();
     }
 
     public void wishlistScreen(JFrame frame){
