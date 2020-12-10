@@ -11,7 +11,7 @@ public class WishList extends UserItemList {
     
 /**
  * Creates a Wish List with the specified {@link project.model.MasterList MasterList} 
- * @param masterList 
+ * @param masterList the singleton containing all available items
  */
     public WishList(MasterList masterList){
         super(masterList);
@@ -21,7 +21,7 @@ public class WishList extends UserItemList {
      * Removes the specified {@link project.model.Item Item} from this Wish List and adds it to a {@link project.model.ShoppingCart Shopping Cart} 
      * @param item the Item to be transferred
      * @param cart the Shopping Cart the Item will be transferred to
-     * @precondition cart.containKey(item.getId())
+     * @custom.precondition cart.containKey(item.getId())
      */
     public void transfer(Item item, ShoppingCart cart){
         cart.add(item);
@@ -31,7 +31,7 @@ public class WishList extends UserItemList {
      * Removes an {@link project.model.Item Item} from this Wish List by its id and adds it to a {@link project.model.ShoppingCart Shopping Cart} 
      * @param id the identifying number of the item in the {@link project.model.MasterList Master List}
      * @param cart the Shopping Cart the Item will be transferred to
-     * @precondition cart.containKey(masterList.get(id))
+     * @custom.precondition cart.containKey(masterList.get(id))
      */
     public void transfer(int id, ShoppingCart cart){
         cart.add(id);

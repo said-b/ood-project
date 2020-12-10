@@ -63,7 +63,7 @@ public class Item implements Serializable {
     /**
      * Modifies the quantity available of this Item by adding the parameter
      * @param quantity the quantity to be added
-     * @precondition quantity >= this.quantity * -1
+     * @custom.precondition quantity is greater or equal to this.quantity * -1
      */
     public void changeQuantity(int quantity){
         this.quantity += quantity;
@@ -71,7 +71,7 @@ public class Item implements Serializable {
     /**
      * Sets the quantity available of this Item to the specified value
      * @param quantity the new quantity of this Item
-     * @precondition quantity > 0
+     * @custom.precondition quantity is greater than 0
      */
     public void setQuantity(int quantity) {
         this.quantity = quantity;
@@ -86,7 +86,7 @@ public class Item implements Serializable {
     /**
      * Sets the description of this Item
      * @param descText the new description of this Item
-     * @precondition descText != null
+     * @custom.precondition descText is not null
      */
     public void setDescText(String descText) {
         this.descText = descText;

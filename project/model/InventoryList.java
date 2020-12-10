@@ -22,7 +22,7 @@ public class InventoryList extends UserItemList{
      * Adds an {@link project.model.Item Item} and the quantity desired
      * @param i the item to be added
      * @param amount the quantity of the item to be added
-     * @precondition i != null && amount > 0
+     * @custom.precondition i isn't null and amount is greater than 0
      */
     public void add(Item i, int amount){
         if(map.containsKey(i.getId())){

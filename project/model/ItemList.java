@@ -20,7 +20,7 @@ public class ItemList implements Serializable {
     /**
      * Adds an {@link project.model.Item Item} to the list
      * @param item the item to be added
-     * @precondition item != null
+     * @custom.precondition item is not null
      */
     public void add(Item item){
         map.put(item.getId(), item);
@@ -29,7 +29,7 @@ public class ItemList implements Serializable {
      * 
      * @param id the identifying number of the item
      * @return the {@link project.model.Item Item} of the specified id
-     * @precondition this.containKey(item)
+     * @custom.precondition this.containKey(item)
      */
     public Item get(int id){
         Item item = map.get(id);

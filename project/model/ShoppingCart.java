@@ -9,7 +9,7 @@ public class ShoppingCart extends UserItemList {
     private HashMap<Integer,Integer> quantities;
     /**
      * Creates a ShoppingCart with the specified {@link project.model.MasterList Master List} 
-     * @param iL 
+     * @param iL the singleton containing all available items
      */
     public ShoppingCart(MasterList iL) {
         super(iL);
@@ -18,7 +18,7 @@ public class ShoppingCart extends UserItemList {
      * Adds an {@link project.model.Item Item} and the quantity desired to the cart
      * @param item the item to be added
      * @param amount the quantity of the item desired
-     * @precondition item != null && amount > 0
+     * @custom.precondition item is not null and amount is greater than 0
      */
     public void add(Item item, int amount){
         map.put(item.getId(), item);
@@ -28,7 +28,7 @@ public class ShoppingCart extends UserItemList {
      * Adds an {@link project.model.Item Item} by its id in the {@link project.model.MasterList Master List} and the quantity desired to the cart
      * @param id the identifying number in the MasterList
      * @param amount the quantity of the Item to be added
-     * @precondition masterList.containKey(id) && amount > 0
+     * @custom.precondition masterList.containKey(id) and amount is greater than 0
      */
     public void add(int id, int amount){
         map.put(id, masterList.get(id));

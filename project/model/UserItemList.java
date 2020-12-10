@@ -10,7 +10,7 @@ public class UserItemList extends ItemList {
     /**
      * Creates a UserItemList with the specified {@link project.model.MasterList Master List}
      * @param iL the singleton containing all available items
-     * @precondition iL != null
+     * @custom.precondition iL is not null
      */
     public UserItemList(MasterList iL){
         super();
@@ -19,7 +19,7 @@ public class UserItemList extends ItemList {
     /**
      * Adds an {@link project.model.Item Item} from its id in the {@link project.model.MasterList Master List}
      * @param id the identifying number of the item
-     * @precondition masterList.containKey(id) 
+     * @custom.precondition masterList.containKey(id) 
      */
     public void add(int id){
         map.put(id, masterList.get(id));
@@ -27,7 +27,7 @@ public class UserItemList extends ItemList {
     /**
      * Removes an {@link project.model.Item Item} from its id in the {@link project.model.MasterList Master List}
      * @param id the identifying number of the item
-     * @precondition map.containKey(item)
+     * @custom.precondition map.containKey(item)
      */
     public void remove(int id){
         map.remove(id);
@@ -35,7 +35,7 @@ public class UserItemList extends ItemList {
     /**
      * Removes an {@link project.model.Item Item}
      * @param item the item to be removed
-     * @precondition map.containKey(item.getId())
+     * @custom.precondition map.containKey(item.getId())
      */
     public void remove(Item item){
         map.remove(item.getId());
