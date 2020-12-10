@@ -1,5 +1,6 @@
 package project.gui;
 
+import com.sun.javaws.util.JfxHelper;
 import project.model.MasterList;
 import project.model.User;
 
@@ -123,5 +124,20 @@ public class GuiFunctions {
         welcLbl.setFont(new Font("Footlight MT Light", Font.PLAIN, 42));
         welcLbl.setBounds(91, 29, 283, 95);
         contentPane.add(welcLbl);
+    }
+
+    public void marketScreen(JFrame frame){
+
+    }
+
+    public void wishlistScreen(JFrame frame){
+
+    }
+    public void inventoryScreen(JFrame frame){
+
+    }
+
+    public void shoppingCartScreen(JFrame frame){
+
     }
 }
