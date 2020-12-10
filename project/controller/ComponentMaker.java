@@ -82,4 +82,17 @@ public class ComponentMaker {
         
         return panel2;
     }
+    
+    public void outerPanel(JPanel p)
+    {
+    	
+    }
+    
+    public JPanel outerPanel2(JPanel p)
+    {
+    	JPanel panel = new JPanel();
+    	panel.add(p, BorderLayout.CENTER);
+    	
+        return panel;
+    }
 }
