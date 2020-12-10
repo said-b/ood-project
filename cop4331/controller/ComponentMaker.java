@@ -1,11 +1,10 @@
-package project.controller;
+package cop4331.controller;
 
-import project.model.Item;
-import project.model.User;
+import cop4331.model.Item;
+import cop4331.model.User;
 
 import javax.imageio.ImageIO;
 //import javax.jws.soap.SOAPBinding;
-import java.awt.event.*;
 import java.awt.*;
 import javax.swing.*;
 import java.awt.event.ActionEvent;

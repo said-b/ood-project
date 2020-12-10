@@ -1,4 +1,4 @@
-package project.model;
+package cop4331.model;
 
 public class WishList extends UserItemList {
 

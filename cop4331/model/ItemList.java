@@ -1,4 +1,4 @@
-package project.model;
+package cop4331.model;
 
 import java.io.Serializable;
 import java.util.HashMap;

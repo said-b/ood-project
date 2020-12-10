@@ -1,4 +1,4 @@
-package project.model;
+package cop4331.model;
 
 import java.util.Objects;
 

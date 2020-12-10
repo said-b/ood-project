@@ -1,11 +1,9 @@
-package project.gui;
+package cop4331.gui;
 
-import com.sun.javaws.util.JfxHelper;
-
-import project.controller.ComponentMaker;
-import project.model.Item;
-import project.model.MasterList;
-import project.model.User;
+import cop4331.controller.ComponentMaker;
+import cop4331.model.Item;
+import cop4331.model.MasterList;
+import cop4331.model.User;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;

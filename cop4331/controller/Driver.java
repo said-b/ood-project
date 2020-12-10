@@ -1,10 +1,10 @@
-package project.controller;
+package cop4331.controller;
 
 
-import project.gui.GuiFunctions;
-import project.model.Item;
-import project.model.MasterList;
-import project.model.User;
+import cop4331.gui.GuiFunctions;
+import cop4331.model.Item;
+import cop4331.model.MasterList;
+import cop4331.model.User;
 
 import javax.swing.*;
 import java.awt.event.WindowEvent;
@@ -20,7 +20,6 @@ import java.io.*;
 // import javax.swing.*;
 
 import java.awt.BorderLayout;
-import java.awt.FlowLayout;
 //import java.io.File;
 //import java.io.IOException;
 

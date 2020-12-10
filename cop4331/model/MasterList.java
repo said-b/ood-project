@@ -1,8 +1,6 @@
-package project.model;
+package cop4331.model;
 
 //Singleton pattern
-
-import java.io.IOException;
 
 /**
  * Singelton master list for items. This list will hold references to all items that exist.
