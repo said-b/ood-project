@@ -77,7 +77,7 @@ public class Driver {
                     out.writeObject(finalUserHashMap);
                     out.close();
                     fileOut.close();
-                    System.out.printf("Serialized data is saved in " + dataFile);
+                    System.out.println("Serialized data is saved in " + dataFile);
                 } catch (IOException i) {
                     i.printStackTrace();
                 }
